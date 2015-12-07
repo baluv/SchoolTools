@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+	
+	
+	<context:component-scan base-package="com.school" />
+	
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+    		
+			p:prefix="/jsp/" p:suffix=".jsp" p:order="1" />
+			
+			<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/schooltoolsdb" />
+		<property name="username" value="root" />
+		<property name="password" value="tiger" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.school.domain.Auth_User</value>
+				<value>com.school.domain.School_Section</value>
+				<value>com.school.domain.School_Standard</value>
+				<value>com.school.domain.School_Student</value>
+				<value>com.school.domain.School_Maincategory</value>			
+				<value>com.school.domain.School_Subcategory</value>	
+				<value>com.school.domain.School_Term</value>				
+				<value>com.school.domain.School_Tag</value>
+				<value>com.school.domain.School_Grade</value>				
+				<value>com.school.domain.School_School</value>	
+				<value>com.school.domain.School_Staff</value>							
+				<value>com.school.domain.School_Schoolhouse</value>			
+				<value>com.school.domain.School_Designation</value>			
+				<value>com.school.domain.School_Department</value>	
+				<value>com.school.domain.Student_Admission</value>	
+				<value>com.school.domain.Marksheets_Assessments</value>		
+				<value>com.school.domain.Marksheets_Evaluation</value>
+				<value>com.school.domain.Marksheets_Studentresults</value>		
+				<value>com.school.domain.Marksheets_Studentremarks</value>
+				<value>com.school.domain.User_Profile</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">
+				show_sql
+				</prop>
+				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="hibernateTransactionManager"
+  class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+  <property name="sessionFactory" ref="sessionFactory" />
+ </bean>
+ 
+<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+  <property name="host" value="aecsmail1.aecsgroup.in" />
+  <property name="port" value="25" />
+  <property name="username" value="magnoliamaarutischool@aecsgroup.in" />
+  <property name="password" value="magnolia123" />
+  <property name="javaMailProperties">
+   <props>
+    <prop key="mail.transport.protocol">smtp</prop>
+    <prop key="mail.smtp.auth">true</prop>
+    <prop key="mail.smtp.starttls.enable">true</prop>
+   </props>
+  </property>
+ </bean> -->
+ <!-- aecsgroupinfo@gmail.com","rishikainc" -->
+ <!-- magnoliamaarutischool@aecsgroup.in,magnolia123 -->
+ 
+ <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+  <property name="host" value="smtp.gmail.com" />
+  <property name="port" value="587" />
+  <property name="username" value="aecsgroupinfo10@gmail.com" />
+  <property name="password" value="rishikainc" />
+  <property name="javaMailProperties">
+   <props>
+    <prop key="mail.transport.protocol">smtp</prop>
+    <prop key="mail.smtp.auth">true</prop>
+    <prop key="mail.smtp.starttls.enable">true</prop>
+   </props>
+  </property>
+ </bean>
+</beans>

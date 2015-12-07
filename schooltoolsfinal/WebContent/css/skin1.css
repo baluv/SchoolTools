@@ -1,0 +1,120 @@
+/* Overrides */
+.ui-icon {float:right;}
+
+body{
+	font-family: Arial;
+	font-size: 12px;
+}
+
+#header { background: #3b5998;padding-top:5px; }
+#header h2 { font-weight: normal; color: #fff; }
+#header table { border:none; background:transparent; }
+#footer { background:#eee; }
+#content { background:#f6f6f6;padding-top:10px;padding-bottom:10px;}
+#wrapper{
+	min-height:600px;
+	min-width:960px;
+}
+
+/* Datatable alternative td color */
+tr.even td {background:#eee;}
+
+/* common layout for common forms*/
+.framelayout{
+	width:50%;
+	margin:0 auto;
+	background-color:#e5ecf9;
+	border-radius: 10px;
+	padding:10px;
+	}
+	
+.framelayout-large{
+	width:70%;
+	margin:0 auto;
+	background-color:#e5ecf9;
+	border-radius: 10px;
+	padding:10px;
+	min-height:675px;
+	}
+
+.span2{
+	width:50%;
+	float: left;
+}
+/* Table */
+.noborder td{border:0px solid #fff;}
+
+/* Font Header Anchor */
+h1 {font-size:24px;font-weight:bold;line-height:1.00;margin-bottom:0em;color:#3b5998}
+a {color:#1833cc;text-decoration:underline;}
+a:hover {color:#cd6501;}
+.nodecoration{color:#1833cc;text-decoration:none;}
+
+/* Error */
+.error {background:#ff5100;;border-color:#FBC2C4;color:#fff}
+
+/* Menu */
+
+.menu{position:relative; height:30px; width:100%;margin: -9px 0px 0px 0px;}
+.menu .left{position:absolute; top:0px; left:0px; width:100%; height:30px; background:url('/site_media/img/menuImage.png') repeat;}
+
+/* sample menu */
+
+#sddm
+{	
+	padding-left: 60px;
+	}
+
+#sddm li
+{	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 11px arial}
+
+#sddm li a
+{	display: block;
+	margin: 0 0px 0 0;
+	padding: 4px 10px;
+	width: 60px;
+	background: #3b5998;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none}
+
+#sddm li a.active,#sddm li a:hover
+{	background: #f6f6f6;
+	color:#000000;
+	}
+
+#sddm li a.subactive
+{	background: #f6f6f6;
+	color:#3b5998;
+}
+	
+#sddm div
+{	position: absolute;
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	background: #00ff00;
+	border: 1px solid #3b5998;
+	z-index:30;}
+
+#sddm div a
+{	position: relative;
+	display: block;
+	margin: 0;
+	padding: 5px 10px;
+	width: auto;
+	white-space: nowrap;
+	text-align: left;
+	text-decoration: none;
+	background: #f6f6f6;
+	color: #3b5998;
+	font: 11px arial;
+	z-index:30;}
+
+#sddm div a:hover
+{	background: #3b5998;
+	color: #FFF}
